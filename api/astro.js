@@ -14,7 +14,7 @@ export default async function handler(req, res) {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': 'Bearer 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'
+        'Authorization': 'Bearer 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'
       },
       body: JSON.stringify({
         model: "gpt-4",
@@ -28,7 +28,7 @@ export default async function handler(req, res) {
     if (response.ok) {
       res.status(200).json({ message: data.choices[0].message.content });
     } else {
-      res.status(response.status).json({ error: data.error || 'Fout bij ophalen van data' });
+      res.status(response.status).json({ error: data.error?.message || 'Fout bij ophalen van data' });
     }
   } catch (error) {
     res.status(500).json({ error: 'Serverfout', detail: error.message });
