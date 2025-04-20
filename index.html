@@ -69,7 +69,7 @@ form.addEventListener('submit', async function(e) {
     if (response.ok) {
       resultDiv.innerHTML = `<h2>Jouw Persoonlijke Horoscoop</h2><p>${data.message}</p>`;
     } else {
-      resultDiv.innerHTML = `<p>Er ging iets mis: ${data.error}</p>`;
+      resultDiv.innerHTML = `<p>Er ging iets mis: ${data.error?.message || JSON.stringify(data)}</p>`;
     }
   } catch (error) {
     resultDiv.innerHTML = `<p>Serverfout: ${error.message}</p>`;
