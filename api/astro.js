@@ -10,7 +10,7 @@ export default async function handler(req, res) {
   const prompt = `Maak een korte geboortehoroscoop voor ${name}, geboren op ${date} om ${time} in ${place}. Beschrijf vriendelijk de Zon, de Maan en de Ascendant.`;
 
   try {
-    const response = await fetch('https://gpt4-proxy.rokkxgroup.workers.dev/', {
+    const response = await fetch('https://gpt-proxy-server-production.up.railway.app/v1/chat/completions', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
