@@ -7,14 +7,13 @@ export default async function handler(req, res) {
 
   const { name, date, time, place } = req.body;
 
-  const prompt = `Maak een korte geboortehoroscoop voor ${name}. Geboren op ${date} om ${time} in ${place}. Beschrijf vriendelijk de Zon, de Maan en de Ascendant.`;
+  const prompt = `Maak een korte geboortehoroscoop voor ${name}, geboren op ${date} om ${time} in ${place}. Beschrijf vriendelijk de Zon, de Maan en de Ascendant.`;
 
   try {
-    const response = await fetch('https://api.openai.com/v1/chat/completions', {
+    const response = await fetch('https://gpt4-proxy.rokkxgroup.workers.dev/', {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json',
-        'Authorization': 'Bearer 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'
+        'Content-Type': 'application/json'
       },
       body: JSON.stringify({
         model: "gpt-4",
